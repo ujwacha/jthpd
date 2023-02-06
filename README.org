@@ -1,0 +1,41 @@
+#+TITLE: JSON To HKTCPTSD Protocol Daemon
+#+Author: Acharya U
+#+PROPERTY:
+
+* Introduction
+If you want to use an extension to send requests to HKTCPTSD, you can't send raw data throuch TCP socket from the browser, so to solve that problem, you can just send a POST request with a JSON file to this program, And the JTHPD will translate it to HKTCPTSD protocol and send it to HKTCPTSD.
+
+* JSON to send
+an example of JSON to send is:
+#+BEGIN_SRC javascript
+  {
+      pass: "rootadmin",
+      id: 69,
+      string: "foo",
+
+  }
+#+END_SRC
+*pass* contains the password string, *id* contains the id and *string* contains the string to send
+The JSON has to be sent through a HTTP POST request
+
+* Environment Variables
+The help page that is shown right after running the program tells all about the environment variables needed
+#+BEGIN_EXAMPLE
+This is the Help Page
+Environment variables:
+JTHPD_ADRESS: for your listening adress default: 127.0.0.1:7979
+JTHPD_MAX_PROCESS: number of threads: default 8
+SEND_ADRESS: adress where hktcptsd is listeining to, default: 127.0.0.1:6969
+#+END_EXAMPLE
+
+* Why was this feature not added to HKTCPTSD
+Because I did not want HKTCPTSD to be bloated, JTHPD imports crates from crates.io, which I did not want to do for HKTCPTSD
+** Imported Crates
+*** serde
+this crate is for converting JSON to strict through a macro
+*** httparse
+this crate is for parsing HTTP requests
+
+* Future TODO
+- NOTHING, this is prefect
+
