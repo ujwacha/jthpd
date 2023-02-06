@@ -42,7 +42,7 @@ pub fn print_help() {
     println!("Environment variables:");
     println!(
         "JTHPD_ADRESS: for your listening adress default: {}",
-        DEFAULT_SEND_ADRESS
+        DEFAULT_ADRESS
     );
     println!(
         "JTHPD_MAX_PROCESS: number of threads: default {}",
@@ -50,7 +50,7 @@ pub fn print_help() {
     );
     println!(
         "SEND_ADRESS: adress where hktcptsd is listeining to, default: {}",
-        DEFAULT_ADRESS
+        DEFAULT_SEND_ADRESS
     )
 }
 
